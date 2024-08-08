@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown and Message</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #message {
+        font-size: 2rem;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown"></div>
+    <div id="message"></div>
+
+    <script>
+      function startCountdown() {
+        const countdownElement = document.getElementById("countdown");
+        const messageElement = document.getElementById("message");
+        let count = 10;
+
+        const intervalId = setInterval(() => {
+          countdownElement.textContent = count;
+          count--;
+
+          if (count < 0) {
+            clearInterval(intervalId);
+            countdownElement.textContent = "";
+            messageElement.textContent = "Happy Independence Day";
+          }
+        }, 1000);
+      }
+
+      // Start the countdown when the page loads
+      window.onload = startCountdown;
+    </script>
+  </body>
+</html>
